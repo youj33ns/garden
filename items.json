@@ -1,4 +1,7 @@
-[
-        {"article": "A95H7", "name": "A95 H7 100W", "price": 5150},
-        {"article": "A98H1", "name": "A98 H1 170W", "price": 6200}
-]
+
+{
+        "article": "A95H7", 
+        "name": "A95 H7 100W",
+        "price": 5150
+}
+
