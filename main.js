@@ -2,7 +2,7 @@
 
 setInterval(
     () => {
-        fetch('https://garden-ten-smoky.vercel.app/items.json')
+        fetch('https://garden-ten-smoky.vercel.app/json.php')
             .then(data => data.json())  // Преобразуем ответ в JSON
             .then(res => {
                 console.log(res)
