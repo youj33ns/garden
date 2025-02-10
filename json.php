@@ -8,7 +8,7 @@ $options = array(
     )
 );
 $context  = stream_context_create($options);
-$result = file_get_contents('http://selhom.ru/r.php', false, $context);
+$result = file_get_contents('https://garden-ten-smoky.vercel.app/json.php', false, $context);
 if ($result === FALSE) { /* Handle error */ }
 header('Content-Type: application/json'); 
 echo $result;
