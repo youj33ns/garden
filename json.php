@@ -1,8 +1,15 @@
 <?php
-// на какие данные рассчитан этот скрипт
-header("Content-Type: application/json");
-// разбираем JSON-строку на составляющие встроенной командой
-$data = json_decode(file_get_contents("php://input"));
-// отправляем в ответ строку с подтверждением
-echo "Сервер получил следующие данные: имя — $data->hello";
+$data = file_get_contents('php://input');
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/json\r\n",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents('http://selhom.ru/r.php', false, $context);
+if ($result === FALSE) { /* Handle error */ }
+header('Content-Type: application/json'); 
+echo $result;
 ?>
