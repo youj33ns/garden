@@ -1,15 +1,12 @@
+
 <?php
-  $var1= $_GET['id'];
+  if(isset($_POST)) {
+  $postData = file_get_contents('php://input');
+  $data = json_decode($postData, true);
   
-  $fileContent = "Registrated id= ".$var1."\n";
-  
-  $fileStatus = file_put_contents('test.txt',$fileContent,FILE_APPEND);
-  if($fileStatus != false)
-  {
-     echo "SUCCESS: data written to file";
-	}
-	else
-	{
-	echo "FAIL: could not write to file";
-	}
+  file_put_contents('items.json', json_encode($data));
+  echo $data;
+    
+
+} else echo "No data";
 ?>
